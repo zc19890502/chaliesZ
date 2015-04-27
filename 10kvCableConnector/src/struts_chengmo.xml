@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="struts_chengmo" extends="struts-default" namespace="/">
+		<action name="doPayPage" class="com.csdl.cabexam.actions.pay.GoOrderAction">
+			<result name="success">page/front/payPage.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+			<result name="error" type="redirectAction">page/error.jsp</result>
+		</action>
+		<action name="goPay" class="com.csdl.cabexam.actions.pay.GoPayAction">
+			<result name="success">
+				/page/front/GoPayTrans.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="readyRefund" class="com.csdl.cabexam.actions.pay.ReadyRefundAciton">
+			<result name="success" type="redirect">
+				/page/front/refPage.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="upRefund" class="com.csdl.cabexam.actions.pay.UpRefundAciton">
+			<result name="success" type="redirectAction">
+				doCheckResult.action
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="refund" class="com.csdl.cabexam.actions.pay.RefundAciton">
+			<result name="success" type="redirect">
+				/page/front/GoRefTransResult.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="goQueryOrder" class="com.csdl.cabexam.actions.pay.QueryAction">
+			<result name="success" type="redirect">
+				/page/front/queryResult.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="feeManager" class="com.csdl.cabexam.actions.pay.FeeManagerAction">
+			<result name="success">
+				/page/background/fee/feeManager.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="queryExraBatch" class="com.csdl.cabexam.actions.pay.QueryBatchAction">
+			<result name="success">
+				/page/background/fee/feeManager.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		<action name="feeStatistics" class="com.csdl.cabexam.actions.pay.FeeStatisticsAction">
+			<result name="success">
+				/page/background/fee/feeStatistics.jsp
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+	</package>
+</struts>    

@@ -1,0 +1,237 @@
+body,html{
+padding:0px;
+margin:0px;
+border:0px;
+font-size:12px;
+line-height:20px;
+text-align:center;
+color:#666666;
+width:100%;
+height:100%;
+}
+td,div,tr{
+font-size:12px;
+}
+#content{
+margin:auto;
+text-align:left;
+width:900px;
+}
+
+#head{
+height:100px;
+background:url(../images/headbg.gif);
+margin-top:10px;
+}
+
+#mid{
+margin-top:10px;
+height:auto;
+}
+
+#foot{
+margin-top:20px;
+height:50px;
+text-align:center;
+}
+
+.left{
+width:250px;
+float:left;
+}
+.right{
+width:640px;
+float:right;
+}
+.clear{
+clear:both;
+}
+.infoBox{
+border:1px solid #69a1e0;
+background:#fff;
+margin-bottom:5px;
+}
+.title{
+background:url(../images/title_bg.gif) repeat-x;
+padding:5px 3px 0px 10px;
+height:22px;
+color:#fff;
+font-weight:bold;
+border-bottom:1px solid #69a1e0;
+margin-bottom:3px;
+}
+.infoTable td{
+border-bottom:1px dotted #69a1e0;}
+
+
+.infoBox2{
+border:1px solid #d8d8d8;
+background:#fff;
+margin-bottom:5px;
+}
+.info{
+border:1px solid #d8d8d8;
+background:#fff;
+margin-bottom:5px;
+}
+.title2{
+background:url(../images/title_bg2.gif) repeat-x;
+padding:5px 3px 0px 10px;
+height:22px;
+color:#000;
+font-weight:bold;
+border-bottom:1px solid #d8d8d8;
+margin-bottom:3px;
+}
+.infoTable2 td{
+border-bottom:1px dotted #d8d8d8;
+border-right:1px solid #d8d8d8;
+}
+.bankTable{
+border-bottom:1px dotted #d8d8d8;
+}
+.payOk{
+background:url(../images/payOk.gif) no-repeat;
+padding-top:100px;
+padding-left:110px;
+margin-top:20px;
+margin-left:180px;
+margin-bottom:10px;
+}
+.error{
+background:url(../images/error.gif) no-repeat left;
+margin-top:15px;
+margin-bottom:20px;
+width:500px;
+height:100px;
+padding:10px 0px 0px 100px;
+margin-left:150px;}
+.errorTitle{
+color:#CB2125;
+font-size:16px;
+font-weight:bold;
+}
+
+.warning{
+background:url(../images/warning.gif) no-repeat left;
+margin-top:15px;
+margin-bottom:20px;
+width:500px;
+height:100px;
+padding:10px 0px 0px 100px;
+margin-left:150px;}
+.warningTitle{
+color:#dd7317;
+font-size:16px;
+font-weight:bold;
+}
+.bankTitle{
+background:url(../images/bankTitle.gif) no-repeat left;
+font-size:13px;
+font-weight:bold;
+padding-left:20px;
+color:#2882A4;
+margin:5px;}
+.bankTable img{
+cursor:pointer;
+}
+#full{
+    /*background-color:#3a2565;*/
+	visibility:hidden;
+	background-color:#333333;
+	filter:blendTrans(duration=1) Alpha(opacity=30);
+	-moz-opacity:0.3;
+	opacity:0.3;
+	position:absolute;
+	width:100%;
+	height:100%;
+	z-index:97;
+	left:0px;
+	top:0px;
+	bottom:0px;
+}
+#pop{
+	filter:blendTrans(duration=0.2) Alpha(opacity=100);
+	-moz-opacity:1;
+	opacity:1;
+	visibility:hidden;
+	position:absolute;
+	z-index:98;
+	width:500px;
+	height:500px;
+	background:#fff;
+	border:1px solid #69a1e0;
+}
+#pop .title{
+height:25px;
+padding-left:8px!important;
+padding-left/**/:10px;
+text-align:left;
+padding-top:5px;
+font-weight:bold;
+}
+#pop img{
+   margin-left:5px;
+   margin-right:5px;}
+   #pop span{
+   color:#000000;}
+.poptxt{
+   margin-top:13px;
+   margin-bottom:11px;
+   font-weight:bold;}
+button{
+   background:url(../images/button.gif) no-repeat;
+   width:74px;
+   height:25px;
+   color:#333333;
+   cursor:pointer;
+   border:0px;
+   text-align:center;
+   margin:5px 0px 10px 10px;
+}
+.type_button {
+	background: url( ../images/buttonbg.gif ) repeat-x;
+	text-align: center;
+	color: #FFFFFF;
+	border: #7fb5ea 1px solid;
+	padding: 0px 12px 2px 12px !important;
+	padding: 1px 8px 1px 8px;
+	height: 22px !important;
+	height: 23px;
+	cursor: pointer;
+}
+.show{
+   height:50px;
+   text-align:left;
+}
+#pop #payinfo{
+   margin:0px 15px 5px 15px;
+   padding:15px;
+   height:325px!important;
+   height:355px;
+   background-color:#F3F3F3;
+   width:auto;
+   border:#BFBFBF 1px solid;
+}
+#pop #payinfo li{
+   line-height:25px; text-align:left;
+}
+#pop #payinfo .boder{
+   background-color:#999999;
+}
+#pop #payinfo .title{
+   padding:5px;
+  background-color:#CCCCCC;
+  color:#333333;
+}
+.line25{
+   line-height:21px;
+   margin-left:-20px!important;
+   margin-left:15px;
+   margin-top:15px!important;
+   margin-top:0px;
+}
+#pop #payinfo .txt{
+background-color:#ffffff;
+padding:5px;
+   }

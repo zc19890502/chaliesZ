@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="10kvCableConnector"
+  id="myeclipse.1400552611866"
+  context-root="/10kvCableConnector"
+  j2ee-spec="6.0"
+  archive="10kvCableConnector.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts_wujianhui" location="45,430" size="12740,770">
+    <action name="doAjaxAction" location="12280,58" size="150,40" />
+    <action name="doCheckCertScore" location="12280,163" size="150,40" />
+    <action name="doMangeNumber" location="12525,152" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="numberUpdate.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doNumberTableInfo" location="12035,222" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="numberlist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doNumberTableInfoById" location="11790,222" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateNumberInJsp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateNumberById" location="11545,222" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doDownloadNumberXls" location="11300,232" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doUpdateNumberXls" location="11300,71" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="empty">
+        <resourceEdge source="empty" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doQueryNumberByCondition" location="11055,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="numberlist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doMangeExam" location="10705,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="examUpdate.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doQueryAllExamManage" location="10460,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="examManage.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExamManageById" location="10215,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateExamManageInJsp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateExamManageById" location="9970,82" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doDownloadExamManageXls" location="9970,442" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doUpdateExamXls" location="9725,421" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="empty">
+        <resourceEdge source="empty" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExamManageByCondition" location="9445,432" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="examManage.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doMangeScore" location="9095,432" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="scoreUpdate.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doMangeAllScore" location="8605,432" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="allScoreUpdate.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doTheoryScoreTableInfo" location="8360,432" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="theoryScorelist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doAllScoreTableInfo" location="8115,432" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="allScorelist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doScoreTableInfo" location="7870,432" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ScorelistOfYears.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doDownloadTheoryScoreXls" location="7625,442" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doDownloadAllScoreXls" location="7625,547" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doDownloadScoreXls" location="7625,652" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doTheoryScoreTableInfoById" location="7380,642" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateTheoryScoreInJsp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doAllScoreTableInfoById" location="6995,642" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateAllScoreInJsp.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateScoreById" location="6750,642" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateAllScoreById" location="6505,642" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateTheoryScoreXls" location="6260,631" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="empty">
+        <resourceEdge source="empty" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateAllScoreXls" location="100,526" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="empty">
+        <resourceEdge source="empty" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doQueryTheoryScoreByCondition" location="345,537" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="theoryScorelist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doQueryAllScoreByCondition" location="660,537" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="allScorelist.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doQueryScoreByCondition" location="1010,537" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ScorelistOfYears.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doDownloadAdmissionById" location="1010,442" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doDownloadChoosedAdmission" location="1010,327" size="150,62">
+      <result name="success" />
+      <result name="empty">
+        <resourceEdge source="empty" routing="0" target="empty.jsp" />
+      </result>
+    </action>
+    <action name="doCheckCertByIdNumAndcertNum" location="1255,327" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="checkResult.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doQueryCertByCondition" location="1710,327" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-certinfo.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doGenerateExamNum" location="5910,187" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doExtraTableInfo" location="5665,187" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="beginExam.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateExtraInfo" location="5420,187" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doUploadTheoryFeePicture" location="5175,176" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doUploadOperateFeePicture" location="4930,176" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doQueryTheoryFeeByState" location="2235,127" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="theoryFeeManage.jsp" />
+      </result>
+    </action>
+    <action name="doQueryTheoryFeeByCondition" location="2480,127" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="theoryFeeManage.jsp" />
+      </result>
+    </action>
+    <action name="doQueryOperateFeeByCondition" location="2725,127" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="operateFeeManage.jsp" />
+      </result>
+    </action>
+    <action name="doQueryOperateFeeByState" location="2970,127" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="operateFeeManage.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExammeeTheoryFeeById" location="3460,117" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="checkTheoryFee.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="bGQueryOrder" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExammeeOperateFeeById" location="3810,117" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="checkOperateFee.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doCheckTheoryFeePass" location="4790,47" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doCheckTheoryFeeFail" location="4545,47" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doCheckOperateFeePass" location="4300,47" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doCheckOperateFeeFail" location="4055,47" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="numberUpdate.jsp" path="/page/background/exam/numberUpdate.jsp" location="12830,555" size="150,55" />
+  <webResource name="admin-login.jsp" path="page/background/admin-login.jsp" location="9281,1675" size="150,55" />
+  <webResource name="numberlist.jsp" path="/page/background/exam/numberlist.jsp" location="11051,1360" size="150,55" />
+  <webResource name="404.jsp" path="404.jsp" location="11860,65" size="150,55" />
+  <webResource name="updateNumberInJsp.jsp" path="/page/background/exam/updateNumberInJsp.jsp" location="11765,1255" size="150,55" />
+  <webResource name="examUpdate.jsp" path="/page/background/exam/examUpdate.jsp" location="10701,1255" size="150,55" />
+  <webResource name="examManage.jsp" path="/page/background/exam/examManage.jsp" location="9441,1360" size="150,55" />
+  <webResource name="updateExamManageInJsp.jsp" path="/page/background/exam/updateExamManageInJsp.jsp" location="10178,1255" size="150,55" />
+  <webResource name="scoreUpdate.jsp" path="page/background/exam/scoreUpdate.jsp" location="9091,1255" size="150,55" />
+  <webResource name="allScoreUpdate.jsp" path="page/background/exam/allScoreUpdate.jsp" location="8767,1255" size="150,55" />
+  <webResource name="theoryScorelist.jsp" path="/page/background/exam/theoryScorelist.jsp" location="326,1570" size="150,55" />
+  <webResource name="allScorelist.jsp" path="/page/background/exam/allScorelist.jsp" location="650,1465" size="150,55" />
+  <webResource name="ScorelistOfYears.jsp" path="/page/background/exam/ScorelistOfYears.jsp" location="988,1360" size="150,55" />
+  <webResource name="updateTheoryScoreInJsp.jsp" path="/page/background/exam/updateTheoryScoreInJsp.jsp" location="7340,1255" size="150,55" />
+  <webResource name="updateAllScoreInJsp.jsp" path="/page/background/exam/updateAllScoreInJsp.jsp" location="6964,1255" size="150,55" />
+  <webResource name="empty.jsp" path="page/background/exam/empty.jsp" location="1024,275" size="150,55" />
+  <webResource name="checkResult.jsp" path="/page/front/checkResult.jsp" location="1418,275" size="150,55" />
+  <webResource name="500.jsp" path="500.jsp" location="3285,170" size="150,55" />
+  <webResource name="admin-certinfo.jsp" path="/page/background/certificate/admin-certinfo.jsp" location="1673,275" size="150,55" />
+  <webResource name="beginExam.jsp" path="/page/background/beginExam.jsp" location="2074,275" size="150,55" />
+  <webResource name="theoryFeeManage.jsp" path="page/background/fee/theoryFeeManage.jsp" location="2467,275" size="150,55" />
+  <webResource name="operateFeeManage.jsp" path="page/background/fee/operateFeeManage.jsp" location="2954,275" size="150,55" />
+  <webResource name="checkTheoryFee.jsp" path="/page/background/fee/checkTheoryFee.jsp" location="3447,275" size="150,55" />
+  <webResource name="checkOperateFee.jsp" path="/page/background/fee/checkOperateFee.jsp" location="3794,275" size="150,55" />
+  <webResource name="error.jsp" path="/page/error.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

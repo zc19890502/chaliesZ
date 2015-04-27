@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts_chengmo" location="0,0" size="0,0">
+    <action name="doPayPage" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="payPage.jsp" />
+      </result>
+      <result name="nologin" />
+      <result name="error" />
+    </action>
+    <action name="goPay" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="GoPayTrans.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="readyRefund" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="refPage.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="admin-welcom.jsp" path="page/background/admin-welcom.jsp" location="1928,205" size="150,55" />
+  <webResource name="admin-login.jsp" path="page/background/admin-login.jsp" location="76,520" size="150,55" />
+  <webResource name="admin-manager.jsp" path="page/background/manager/admin-manager.jsp" location="1236,625" size="150,55" />
+  <webResource name="500.jsp" path="500.jsp" location="240,1675" size="150,55" />
+  <webResource name="addManager.jsp" path="page/background/manager/addManager.jsp" location="1245,940" size="150,55" />
+  <webResource name="updateManager.jsp" path="page/background/manager/updateManager.jsp" location="1236,1255" size="150,55" />
+  <webResource name="admin-exammerState.jsp" path="page/background/verification/admin-exammerState.jsp" location="1556,2725" size="150,55" />
+  <webResource name="verification.jsp" path="page/background/verification/verification.jsp" location="1259,1570" size="150,55" />
+  <webResource name="checkedError.jsp" path="page/background/certificate/checkedError.jsp" location="1262,1850" size="150,55" />
+  <webResource name="examinnerInfo.jsp" path="page/background/verification/examinnerInfo.jsp" location="1256,2025" size="150,55" />
+  <webResource name="404.jsp" path="404.jsp" location="1255,2235" size="150,55" />
+  <webResource name="theoryFeeManage.jsp" path="page/background/fee/theoryFeeManage.jsp" location="1242,2410" size="150,55" />
+  <webResource name="operateFeeManage.jsp" path="page/background/fee/operateFeeManage.jsp" location="1239,2585" size="150,55" />
+  <webResource name="payPage.jsp" path="page/front/payPage.jsp" location="0,0" size="0,0" />
+  <webResource name="GoPayTrans.jsp" path="/page/front/GoPayTrans.jsp" location="0,0" size="0,0" />
+  <webResource name="error.jsp" path="/page/error.jsp" location="0,0" size="0,0" />
+  <webResource name="refPage.jsp" path="/page/front/refPage.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

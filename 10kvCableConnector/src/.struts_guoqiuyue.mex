@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts_guoqiuyue" location="395,10" size="805,2695">
+    <action name="isManageLogin" location="345,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-welcom.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doManagerLogin" location="345,201" size="150,104">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-welcom.jsp" />
+      </result>
+      <result name="err01">
+        <resourceEdge source="err01" routing="0" target="admin-login.jsp" />
+      </result>
+      <result name="err02">
+        <resourceEdge source="err02" routing="0" target="admin-login.jsp" />
+      </result>
+      <result name="err03">
+        <resourceEdge source="err03" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doManagerExitSys" location="345,442" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateManagerPsw" location="345,537" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doQueryAllManager" location="345,642" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-manager.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doDelManager" location="345,771" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="admin-login.jsp" />
+      </result>
+      <result name="err01">
+        <resourceEdge source="err01" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doAddManager" location="345,946" size="150,83">
+      <result name="success" />
+      <result name="err01">
+        <resourceEdge source="err01" routing="0" target="addManager.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="dogotoAddManager" location="345,1097" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="addManager.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doQueryManagerById" location="345,1272" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateManager.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateManager" location="345,1377" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExammerByState" location="345,1482" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-exammerState.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExamineeFile" location="345,1587" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="verification.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doVerifyPass" location="100,1671" size="150,104">
+      <result name="success" />
+      <result name="cannotCheck">
+        <resourceEdge source="cannotCheck" routing="0" target="checkedError.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doVerifyNotPass" location="100,1846" size="150,104">
+      <result name="success" />
+      <result name="cannotnoChecked">
+        <resourceEdge source="cannotnoChecked" routing="0" target="checkedError.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExammeeChecked" location="100,2042" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="examinnerInfo.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doQueryExamineeByCondition" location="100,2262" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-exammerState.jsp" />
+      </result>
+    </action>
+    <action name="doQueryAllExammer" location="345,2252" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-exammerState.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="getcheckStateExamineeInfoByCondition" location="345,2437" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-exammerState.jsp" />
+      </result>
+    </action>
+    <action name="doQueryTheoryFeeByState" location="590,2437" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="theoryFeeManage.jsp" />
+      </result>
+    </action>
+    <action name="doQueryOperateFeeByState" location="590,2612" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="operateFeeManage.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="admin-welcom.jsp" path="page/background/admin-welcom.jsp" location="1928,205" size="150,55" />
+  <webResource name="admin-login.jsp" path="page/background/admin-login.jsp" location="76,520" size="150,55" />
+  <webResource name="admin-manager.jsp" path="page/background/manager/admin-manager.jsp" location="1236,625" size="150,55" />
+  <webResource name="500.jsp" path="500.jsp" location="240,1675" size="150,55" />
+  <webResource name="addManager.jsp" path="page/background/manager/addManager.jsp" location="1245,940" size="150,55" />
+  <webResource name="updateManager.jsp" path="page/background/manager/updateManager.jsp" location="1236,1255" size="150,55" />
+  <webResource name="admin-exammerState.jsp" path="page/background/verification/admin-exammerState.jsp" location="1556,2725" size="150,55" />
+  <webResource name="verification.jsp" path="page/background/verification/verification.jsp" location="1259,1570" size="150,55" />
+  <webResource name="checkedError.jsp" path="page/background/certificate/checkedError.jsp" location="1262,1850" size="150,55" />
+  <webResource name="examinnerInfo.jsp" path="page/background/verification/examinnerInfo.jsp" location="1256,2025" size="150,55" />
+  <webResource name="404.jsp" path="404.jsp" location="1255,2235" size="150,55" />
+  <webResource name="theoryFeeManage.jsp" path="page/background/fee/theoryFeeManage.jsp" location="1242,2410" size="150,55" />
+  <webResource name="operateFeeManage.jsp" path="page/background/fee/operateFeeManage.jsp" location="1239,2585" size="150,55" />
+</Struts2Diagram>
+

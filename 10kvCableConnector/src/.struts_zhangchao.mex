@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts_zhangchao" location="80,360" size="10010,490">
+    <action name="index" location="9760,47" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="main.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="dologin" location="9760,341" size="150,104">
+      <result name="success" />
+      <result name="err01">
+        <resourceEdge source="err01" routing="0" target="main.jsp" />
+      </result>
+      <result name="err02">
+        <resourceEdge source="err02" routing="0" target="main.jsp" />
+      </result>
+      <result name="err03">
+        <resourceEdge source="err03" routing="0" target="main.jsp" />
+      </result>
+    </action>
+    <action name="doRegister" location="9480,341" size="150,104">
+      <result name="success" />
+      <result name="err01">
+        <resourceEdge source="err01" routing="0" target="register.jsp" />
+      </result>
+      <result name="err02">
+        <resourceEdge source="err02" routing="0" target="register.jsp" />
+      </result>
+      <result name="err03">
+        <resourceEdge source="err03" routing="0" target="register.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateUserPsw" location="9060,351" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updatePswSuccess.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="updatePsw.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doGotoUpdatePsw" location="8605,362" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updatePsw.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doINperson_index" location="8360,362" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="personInfo.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doResetPasswd" location="8045,351" size="150,83">
+      <result name="success" />
+      <result name="noThisUser">
+        <resourceEdge source="noThisUser" routing="0" target="updatePswByEmail.jsp" />
+      </result>
+      <result name="noinput">
+        <resourceEdge source="noinput" routing="0" target="updatePswByEmail.jsp" />
+      </result>
+    </action>
+    <action name="dogotoResetPasswd" location="7800,372" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updatePswByEmail.jsp" />
+      </result>
+    </action>
+    <action name="doSendEmail" location="7275,351" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="emailSend.jsp" />
+      </result>
+      <result name="noThisUser">
+        <resourceEdge source="noThisUser" routing="0" target="findPsw.jsp" />
+      </result>
+      <result name="noinput">
+        <resourceEdge source="noinput" routing="0" target="findPsw.jsp" />
+      </result>
+    </action>
+    <action name="dogotoSendMail" location="7030,372" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="findPsw.jsp" />
+      </result>
+    </action>
+    <action name="doAddExaminee" location="7030,124" size="150,188">
+      <result name="success" />
+      <result name="err01">
+        <resourceEdge source="err01" routing="0" target="upload_error.jsp" />
+      </result>
+      <result name="err02">
+        <resourceEdge source="err02" routing="0" target="upload_error.jsp" />
+      </result>
+      <result name="err03">
+        <resourceEdge source="err03" routing="0" target="upload_error.jsp" />
+      </result>
+      <result name="err04">
+        <resourceEdge source="err04" routing="0" target="upload_error.jsp" />
+      </result>
+      <result name="cannotSignUp">
+        <resourceEdge source="cannotSignUp" routing="0" target="upload_error.jsp" />
+      </result>
+      <result name="geshierr">
+        <resourceEdge source="geshierr" routing="0" target="upload_error.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="upload_error.jsp" />
+      </result>
+    </action>
+    <action name="doExitSys" location="6680,197" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doGetRandImage" location="6680,93" size="150,40" />
+    <action name="gotoSignUp" location="6435,71" size="150,83">
+      <result name="examStateNo">
+        <resourceEdge source="examStateNo" routing="0" target="fileinfo.jsp" />
+      </result>
+      <result name="examStateYes">
+        <resourceEdge source="examStateYes" routing="0" target="exameeDetail.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="isUserLogin" location="6155,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
+      </result>
+      <result name="nologin">
+        <resourceEdge source="nologin" routing="0" target="register.jsp" />
+      </result>
+    </action>
+    <action name="checkExamineeInfo" location="5840,71" size="150,83">
+      <result name="signup">
+        <resourceEdge source="signup" routing="0" target="checkExameeInfo.jsp" />
+      </result>
+      <result name="nosignup">
+        <resourceEdge source="nosignup" routing="0" target="fileinfo.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doCheckResult" location="5525,71" size="150,83">
+      <result name="examStateNo">
+        <resourceEdge source="examStateNo" routing="0" target="fileinfo.jsp" />
+      </result>
+      <result name="examStateYes">
+        <resourceEdge source="examStateYes" routing="0" target="fileinfo.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doPayPage" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="payPage.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doGetPersonFile" location="5280,82" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="personalFile.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+    <action name="doAddNotice" location="5035,82" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateNotice" location="4790,82" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doGetAllNotice" location="4790,197" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-notice.jsp" />
+      </result>
+    </action>
+    <action name="doDeleteNotcie" location="4160,187" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doOpenNewNotice" location="4160,292" size="150,62">
+      <result name="updateNotice">
+        <resourceEdge source="updateNotice" routing="0" target="updateNotice.jsp" />
+      </result>
+      <result name="newNotice">
+        <resourceEdge source="newNotice" routing="0" target="addNotice.jsp" />
+      </result>
+    </action>
+    <action name="doGetMoreNotice" location="3880,302" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="notice-more.jsp" />
+      </result>
+    </action>
+    <action name="doverticateNotice" location="3635,281" size="150,83">
+      <result name="success" />
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+    </action>
+    <action name="doGetAllCertInfo" location="3285,292" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="admin-certinfo.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doUploadCertInfoXls" location="2865,292" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="uploadCertInfoXls.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="UploadCertXls" location="2445,281" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+      <result name="empty">
+        <resourceEdge source="empty" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doGotoUpdateCertInfo" location="2200,281" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="updateCertInfo.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doDeleteDeducInfo" location="1640,281" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gotoCertInfoDetail.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doUpdateCertInfo" location="1220,281" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="gotoCertInfoDetail.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doGetCertInfoDetail" location="800,281" size="150,83">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="certinfoDetail.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doRevokeCertInfo" location="555,281" size="150,83">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="500.jsp" />
+      </result>
+      <result name="mananologin">
+        <resourceEdge source="mananologin" routing="0" target="admin-login.jsp" />
+      </result>
+    </action>
+    <action name="doDownloadCertXls" location="65,302" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="doGenerateCert" location="65,397" size="150,62">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="404.jsp" />
+      </result>
+    </action>
+    <action name="doGotoFee" location="310,397" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="payment.jsp" />
+      </result>
+      <result name="nologin" />
+    </action>
+  </package>
+  <webResource name="main.jsp" path="page/front/main.jsp" location="9842,1360" size="150,55" />
+  <webResource name="500.jsp" path="500.jsp" location="4895,100" size="150,55" />
+  <webResource name="register.jsp" path="page/front/register.jsp" location="9410,1115" size="150,55" />
+  <webResource name="updatePswSuccess.jsp" path="page/front/updatePswSuccess.jsp" location="8931,905" size="150,55" />
+  <webResource name="updatePsw.jsp" path="page/front/updatePsw.jsp" location="8672,1010" size="150,55" />
+  <webResource name="personInfo.jsp" path="page/front/personInfo.jsp" location="8424,905" size="150,55" />
+  <webResource name="updatePswByEmail.jsp" path="page/front/updatePswByEmail.jsp" location="8091,905" size="150,55" />
+  <webResource name="emailSend.jsp" path="page/front/emailSend.jsp" location="7587,905" size="150,55" />
+  <webResource name="findPsw.jsp" path="page/front/findPsw.jsp" location="7348,1010" size="150,55" />
+  <webResource name="upload_error.jsp" path="page/front/upload_error.jsp" location="7368,205" size="150,55" />
+  <webResource name="fileinfo.jsp" path="page/front/fileinfo.jsp" location="6085,1255" size="150,55" />
+  <webResource name="exameeDetail.jsp" path="page/front/exameeDetail.jsp" location="6493,905" size="150,55" />
+  <webResource name="index.jsp" path="index.jsp" location="6260,905" size="150,55" />
+  <webResource name="checkExameeInfo.jsp" path="page/front/checkExameeInfo.jsp" location="5889,905" size="150,55" />
+  <webResource name="personalFile.jsp" path="page/front/personalFile.jsp" location="5338,905" size="150,55" />
+  <webResource name="admin-notice.jsp" path="page/background/notice/admin-notice.jsp" location="4812,905" size="150,55" />
+  <webResource name="updateNotice.jsp" path="page/background/notice/updateNotice.jsp" location="4182,905" size="150,55" />
+  <webResource name="addNotice.jsp" path="page/background/notice/addNotice.jsp" location="4506,905" size="150,55" />
+  <webResource name="notice-more.jsp" path="page/front/notice-more.jsp" location="3941,905" size="150,55" />
+  <webResource name="admin-login.jsp" path="page/background/admin-login.jsp" location="846,1115" size="150,55" />
+  <webResource name="admin-certinfo.jsp" path="page/background/certificate/admin-certinfo.jsp" location="3286,905" size="150,55" />
+  <webResource name="uploadCertInfoXls.jsp" path="page/background/certificate/uploadCertInfoXls.jsp" location="2857,905" size="150,55" />
+  <webResource name="404.jsp" path="404.jsp" location="2690,1010" size="150,55" />
+  <webResource name="updateCertInfo.jsp" path="page/background/certificate/updateCertInfo.jsp" location="1991,905" size="150,55" />
+  <webResource name="gotoCertInfoDetail.jsp" path="page/background/certificate/gotoCertInfoDetail.jsp" location="1419,905" size="150,55" />
+  <webResource name="certinfoDetail.jsp" path="page/background/certificate/certinfoDetail.jsp" location="1011,905" size="150,55" />
+  <webResource name="payment.jsp" path="page/front/payment.jsp" location="383,905" size="150,55" />
+  <webResource name="payPage.jsp" path="page/front/payPage.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

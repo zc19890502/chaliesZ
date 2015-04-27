@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+ .insert {
+		 height:70px; width:180px; margin: 0 auto; margin-top:20px; 
+}
+	
+.whole {
+	 width:1000px; margin:0 auto; font-size:14px;
+ }
+ 
+ .logo {
+	  height:240px; background:url(../images/head.png) no-repeat; width:100%;
+ }
+  .logo1 {
+	  height:240px; background:url(../images/head_back.png) no-repeat; width:100%;
+ }
+ .whole1 {
+	 width:960px; margin:0 auto;background-color: #f0f0f0;
+ }
+ 
+ .heading {
+	height:30px;
+ }
+  .heading1 {
+	height:30px;background:url(../images/login.png) no-repeat; margin-top:-10px;
+ }
+ .imge {
+	 border:2px solid #000; margin-left:2px; margin-top:2px; height:295px;
+ }
+ 
+ .insert-block {
+	 height:auto; border-top:solid 5px white; margin-bottom:20px; text-align:center;
+ }
+ 
+ .footer {
+	 height:60px; text-align:center; border-top:solid 5px #0FF; margin-top:20px;
+ }
+
+.login {
+	width:250px; background-color:#f0f0f0;
+}
+
+	.center {
+		 width:400px; height:200px; margin-top:200px; margin-left:250px;
+	}
+	
+	.span2 ul {
+		list-style: none;
+		font-family: 黑体;
+		font-size: 18px;
+		color: #468DC7;
+	}
+	
+	.span2 ul li {
+		line-height: 40px;
+	}

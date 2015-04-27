@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="struts_zhangchao" extends="struts-default" namespace="/">
+		<action name="index" class="com.csdl.cabexam.actions.GetIndexInfoAction">
+			<result name="success">page/front/main.jsp</result>
+			<result name="error">500.jsp</result>		
+		</action>
+		<action name="dologin" class="com.csdl.cabexam.actions.user.action.UserAction" method="userLogin">
+			<result name="success" type="redirectAction">index</result>
+			<result name="err01">page/front/main.jsp</result>
+			<result name="err02">page/front/main.jsp</result>
+			<result name="err03">page/front/main.jsp</result>
+		</action>
+		<action name="doRegister" class="com.csdl.cabexam.actions.user.action.UserAction" method="userRegister">
+			<result name="success" type="redirectAction">index</result>
+			<result name="err01">page/front/register.jsp</result>
+			<result name="err02">page/front/register.jsp</result>
+			<result name="err03">page/front/register.jsp</result>
+		</action>
+		<action name="doUpdateUserPsw" class="com.csdl.cabexam.actions.user.action.UpdateUserPswAction">
+			<result name="success">page/front/updatePswSuccess.jsp</result>
+			<result name="error">page/front/updatePsw.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		<action name="doGotoUpdatePsw" class="com.csdl.cabexam.actions.user.action.GotoOneAction">
+			<result name="success">page/front/updatePsw.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		
+		<!-- 个人中心操作 -->
+		<action name="doINperson_index" class="com.csdl.cabexam.actions.user.action.GotoOneAction">
+			<result name="success">page/front/personInfo.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		<action name="doResetPasswd" class="com.csdl.cabexam.actions.user.action.ResetPasswdAction">
+			<result name="success" type="redirectAction">index</result>
+			<result name="noThisUser">page/front/updatePswByEmail.jsp</result>
+			<result name="noinput">page/front/updatePswByEmail.jsp</result>
+		</action>
+		<action name="dogotoResetPasswd" class="com.csdl.cabexam.actions.user.action.GotoResetPasswdAction">
+			<result name="success">page/front/updatePswByEmail.jsp</result>
+		</action>
+		<action name="doSendEmail" class="com.csdl.cabexam.actions.user.action.SendEmailAction">
+			<result name="success">page/front/emailSend.jsp</result>
+			<result name="noThisUser">page/front/findPsw.jsp</result>
+			<result name="noinput">page/front/findPsw.jsp</result>
+		</action>
+		<action name="dogotoSendMail" class="com.csdl.cabexam.actions.user.action.GotoResetPasswdAction">
+			<result name="success">page/front/findPsw.jsp</result>
+		</action>
+		
+		
+		<!-- 上传考生信息操作 -->
+		<action name="doAddExaminee" class="com.csdl.cabexam.actions.examee.action.ExamineeEnterAction">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg</param>
+				<param name="fileUpload.maximumSize">1024000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">index</result>
+			<result name="err01">page/front/upload_error.jsp</result>
+			<result name="err02">page/front/upload_error.jsp</result>
+			<result name="err03">page/front/upload_error.jsp</result>
+			<result name="err04">page/front/upload_error.jsp</result>
+			<result name="cannotSignUp">page/front/upload_error.jsp</result>
+			<result name="geshierr">page/front/upload_error.jsp</result>
+			<result name="input">page/front/upload_error.jsp</result>
+			<result name="nologin" type="redirectAction">index</result> 
+		</action>
+		<action name="doExitSys" class="com.csdl.cabexam.actions.user.action.ExitSystem">
+			<result name="success" type="redirectAction">index</result>
+		</action>
+		<action name="doGetRandImage" class="com.csdl.cabexam.actions.GetRandImage" method="getRandImage">
+		</action>
+		<action name="gotoSignUp" class="com.csdl.cabexam.actions.examee.action.SignUpResultAction">
+			<result name="examStateNo">page/front/fileinfo.jsp</result>
+			<result name="examStateYes">page/front/exameeDetail.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		<action name="isUserLogin" class="com.csdl.cabexam.actions.user.action.GotoOneAction">
+			<result name="success">index.jsp</result>
+			<result name="nologin">page/front/register.jsp</result>
+		</action>
+		<action name="checkExamineeInfo" class="com.csdl.cabexam.actions.examee.action.CheckExamineeInfoAction">
+			<result name="signup">page/front/checkExameeInfo.jsp</result>
+			<result name="nosignup">page/front/fileinfo.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		<action name="doCheckResult" class="com.csdl.cabexam.actions.examee.action.SignUpResultAction">
+			<result name="examStateNo">page/front/fileinfo.jsp</result>
+			<result name="examStateYes">page/front/fileinfo.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		<action name="doGetPersonFile" class="com.csdl.cabexam.actions.user.action.GetUserFilesAction">
+			<result name="success">page/front/personalFile.jsp</result>
+			<result name="nologin" type="redirectAction">index</result>
+		</action>
+		
+		<!-- 公告信息操作 -->
+		<action name="doAddNotice" class="com.csdl.cabexam.actions.notice.action.AddNoticePageAction">
+			<result name="success" type="redirectAction">doGetAllNotice</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<action name="doUpdateNotice" class="com.csdl.cabexam.actions.notice.action.UpdateNotcePageAction">
+			<result name="success" type="redirectAction">doGetAllNotice</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<action name="doGetAllNotice" class="com.csdl.cabexam.actions.notice.action.GetAllNoticeAction">
+			<result name="success">page/background/notice/admin-notice.jsp</result>
+		</action>
+		<action name="doDeleteNotcie" class="com.csdl.cabexam.actions.notice.action.DeletNoticePageAction">
+			<result name="success" type="redirectAction">doGetAllNotice</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<action name="doOpenNewNotice" class="com.csdl.cabexam.actions.notice.action.OpenNewNoticeAction">
+			<result name="updateNotice">page/background/notice/updateNotice.jsp</result>
+			<result name="newNotice">page/background/notice/addNotice.jsp</result>
+		</action>
+		<action name="doGetMoreNotice" class="com.csdl.cabexam.actions.notice.action.GetMoreNoticAction">
+			<result name="success">page/front/notice-more.jsp</result>
+		</action>
+		<action name="doverticateNotice" class="com.csdl.cabexam.actions.notice.action.VertificateNoticeAction">
+			<result name="success" type="redirectAction">doGetAllNotice</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<!-- 证书信息 -->
+		<action name="doGetAllCertInfo" class="com.csdl.cabexam.actions.certinfo.action.GetAllCertInfoAction">
+			<result name="success">page/background/certificate/admin-certinfo.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doUploadCertInfoXls" class="com.csdl.cabexam.actions.manager.action.GotoOneBackAction">
+			<result name="success">page/background/certificate/uploadCertInfoXls.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="UploadCertXls" class="com.csdl.cabexam.actions.certinfo.action.UploadCertInfoXls" >
+		<interceptor-ref name="fileUpload">
+			<param name="allowedTypes">application/vnd.ms-excel</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">doGetAllCertInfo</result>
+			<result name="error">404.jsp</result>
+			<result name="empty">404.jsp</result>
+			<result name="tips">/page/background/certificate/uploadCertInfoXls.jsp</result>
+		</action>
+		<action name="doGotoUpdateCertInfo" class="com.csdl.cabexam.actions.certinfo.action.GotoUpdateCertInfoAction">
+			<result name="success">page/background/certificate/updateCertInfo.jsp</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doDeleteDeducInfo" class="com.csdl.cabexam.actions.certinfo.action.GotoUpdateCertInfoAction" method="deleteCertInfo">
+			<result name="success">page/background/certificate/gotoCertInfoDetail.jsp</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doUpdateCertInfo" class="com.csdl.cabexam.actions.certinfo.action.UpdateCertInfoAction">
+			<result name="success">page/background/certificate/gotoCertInfoDetail.jsp</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doGetCertInfoDetail" class="com.csdl.cabexam.actions.certinfo.action.GetCertInfoDetailAction">
+			<result name="success">page/background/certificate/certinfoDetail.jsp</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doRevokeCertInfo" class="com.csdl.cabexam.actions.certinfo.action.RevokeCertInfoAction">
+			<result name="success" type="redirectAction">doGetAllCertInfo</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doDownloadCertXls" class="com.csdl.cabexam.actions.certinfo.action.DownloadCertXls" method="generateXls">
+           <result type="stream">
+			    <param name="contentType">application/vnd.ms-excel</param>
+			    <param name="inputName">inputStream</param>
+			    <param name="contentDisposition">attachment;filename="${fileName}"</param>
+			    <param name="bufferSize">4096</param>
+       	 	</result>
+        </action>
+           <!--统一生成证书编号 -->
+         <action name="doGenerateCert" class="com.csdl.cabexam.actions.certinfo.action.GenerateCert" >
+        	<result name="success" type="redirectAction">doGetAllCertInfo</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+         
+         <!-- 跳转到上传理论缴费界面 -->
+         <action name="doGotoFee" class="com.csdl.cabexam.actions.GotoFeeJsp">
+         	<result name="success">page/front/payment.jsp</result>
+         	<result name="nologin" type="redirectAction">index</result>
+         </action>
+         
+        <!-- 下载审核详情 -->
+        <action name="downCheckFirXls" class="com.csdl.cabexam.actions.examee.action.DownCheckDetail" method="downCheckXls">
+           <result type="stream">
+			    <param name="contentType">application/vnd.ms-excel</param>
+			    <param name="inputName">inputStream</param>
+			    <param name="contentDisposition">attachment;filename="${fileName}"</param>
+			    <param name="bufferSize">4096</param>
+       	 	</result>
+        </action>
+        <!-- 跳转到上传理论缴费界面 -->
+         <action name="recordDetail" class="com.csdl.cabexam.actions.certinfo.action.RcordDetail" method="record">
+         	<result name="success">page/background/certificate/recordDetai.jsp</result>
+         	<result name="failed" type="redirectAction">doAllRecord</result>
+         </action>
+	</package>
+</struts>    

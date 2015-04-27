@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="struts_guoqiuyue" extends="struts-default" namespace="/">
+		<!-- 管理员的管理 -->
+		<action name="isManageLogin" class="com.csdl.cabexam.actions.manager.action.GotoOneBackAction">
+			<result name="success" >page/background/admin-welcom.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doManagerLogin" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="managerLogin">
+			<result name="success" >page/background/admin-welcom.jsp</result>
+			<result name="err01">page/background/admin-login.jsp</result>
+			<result name="err02">page/background/admin-login.jsp</result>
+			<result name="err03">page/background/admin-login.jsp</result>
+		</action>
+		
+		<action name="doManagerExitSys" class="com.csdl.cabexam.actions.manager.action.ManagerExitSystem">
+			<result name="success">page/background/admin-login.jsp</result>
+		</action>
+		
+	    <action name="doUpdateManagerPsw" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="updatePsw">
+			<result name="success" type="redirectAction">doManagerExitSys</result>
+			<result name="error">page/background/admin-login.jsp</result>
+		</action>
+		
+		<action name="doQueryAllManager" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="queryAllManager">
+			<result name="success">page/background/manager/admin-manager.jsp</result>
+			<result name="error">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doDelManager" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="delManager">
+			<result name="success" type="redirectAction" >doQueryAllManager</result>
+			<result name="error">page/background/admin-login.jsp</result>
+			<result name="err01">500.jsp</result>
+		</action>
+		<action name="doAddManager" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="addManager">
+			<result name="success" type="redirectAction" >doQueryAllManager</result>
+			<result name="err01">page/background/manager/addManager.jsp</result>
+			<result name="error">page/background/admin-login.jsp</result>
+		</action>
+		<action name="dogotoAddManager" class="com.csdl.cabexam.actions.manager.action.GotoOneBackAction">
+			<result name="success">page/background/manager/addManager.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<action name="doQueryManagerById" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="queryManagerById">
+			<result name="success">page/background/manager/managerDetail.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<action name="doGotoUpdateManager" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="queryManagerById">
+			<result name="success">page/background/manager/updateManager.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<action name="doUpdateManager" class="com.csdl.cabexam.actions.manager.action.ManagerAction" method="updateManager">
+			<result name="success" type="redirectAction" >doQueryAllManager</result>
+			<result name="error">page/background/admin-login.jsp</result>
+		</action>
+		<!-- 考生信息管理 -->
+		
+		
+		
+		
+		
+		
+		<action name="doQueryExammerByState" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExammerByState">
+			<result name="success">page/background/verification/admin-exammerState.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>
+		
+		
+
+		
+		<!-- 进行审核 -->
+		<action name="doQueryExamineeFile" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExamineeFile">
+			<result name="success">page/background/verification/verification.jsp</result>
+			<result name="error" type="redirectAction">doQueryAllExammer</result>
+		</action>
+		
+		<!-- 执行审核通过 -->
+		<action name="doVerifyPass" class="com.csdl.cabexam.actions.examee.action.VerifyCheckStateAction" method="passCheck">
+			<result name="success" type="redirectAction">doQueryAllExammer</result>
+			<result name="cannotCheck">page/background/certificate/checkedError.jsp</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		<!-- 执行审核不通过 -->
+		<action name="doVerifyNotPass" class="com.csdl.cabexam.actions.examee.action.VerifyCheckStateAction" method="noPassCheck">
+			<result name="success" type="redirectAction">doQueryAllExammer</result>
+			<result name="cannotnoChecked">page/background/certificate/checkedError.jsp</result>
+			<result name="error">500.jsp</result>
+			<result name="mananologin">page/background/admin-login.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		<action name="doQueryExammeeChecked" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExamineeCheckedReady">
+			<result name="success">page/background/verification/examinnerInfo.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>
+		<action name="doQueryExamineeByCondition" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExamineeByCondition">
+			<result name="success">page/background/verification/admin-exammerState.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		<action name="doQueryAllExammer" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryAllExammer">
+			<result name="success">page/background/verification/admin-exammerState.jsp</result>
+			<result name="error">404.jsp</result>
+		</action>
+		<action name="getcheckStateExamineeInfoByCondition" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="getcheckStateExamineeInfoByCondition">
+			<result name="success">page/background/verification/admin-exammerState.jsp</result>
+		</action>
+		<!-- 查出所有的理论缴费状态 -->
+		<action name="doQueryTheoryFeeByState" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryTheoryFee">
+			<result name="success">page/background/fee/theoryFeeManage.jsp</result>
+		</action>
+		
+		<!-- 查出所有的操作缴费状态 -->
+		<action name="doQueryOperateFeeByState" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryOperateFee">
+			<result name="success">page/background/fee/operateFeeManage.jsp</result>
+		</action>
+		
+		<!--  暂时不要
+			
+		
+		
+	
+		
+		
+		
+		
+		
+		<action name="doQueryExammerByRealName" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExammerByRealName">
+			<result name="success">page/background/admin-exammerState.jsp</result>
+			<result name="err01">page/background/login.jsp</result>
+			<result name="err02" >page/background/login.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		-->
+		
+	</package>
+</struts>    

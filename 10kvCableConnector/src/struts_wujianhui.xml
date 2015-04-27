@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="struts_wujianhui" extends="struts-default" namespace="/">
+		<!-- 动态验证 -->
+		<action name="doAjaxAction" class="com.csdl.cabexam.actions.ajax.action.AjaxAction" method="checkit">
+		</action>
+		
+		<action name="doCheckCertScore" class="com.csdl.cabexam.actions.ajax.action.CheckCertScoreAction" method="checkit">
+		</action>
+		
+		 <!--跳入准考证号管理页面 -->
+		<action name="doMangeNumber" class="com.csdl.cabexam.actions.manager.action.GotoOneBackAction">
+        	<result name="success" >/page/background/exam/numberUpdate.jsp</result>
+        	<result name="mananologin">page/background/admin-login.jsp</result>
+        </action>
+        <!--遍历准考证号信息 -->
+        <action name="doNumberTableInfo" class="com.csdl.cabexam.actions.excel.action.doNumberTableInfo">
+        	<result name="success" >/page/background/exam/numberlist.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--通过id获得某个考生的准考证号信息-->
+        <action name="doNumberTableInfoById" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfoById">
+        	<result name="success" >/page/background/exam/updateNumberInJsp.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--通过id修改某个考生的准考证号-->
+        <action name="doUpdateNumberById" class="com.csdl.cabexam.actions.excel.action.doUpdateNumberById" method="execute"> 
+        	<result name="success" type="redirectAction">doNumberTableInfo</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--下载全部准考证号列表-->
+        <action name="doDownloadNumberXls" class="com.csdl.cabexam.actions.excel.action.doDownloadNumberXls" method="generateXls">
+           <result type="stream">
+                                <param name="contentType">application/vnd.ms-excel</param>
+                                <param name="inputName">inputStream</param>
+                                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                                <param name="bufferSize">4096</param>
+           </result>
+        </action>
+		
+        <!--上传准考证号xls文档，并更新准考证号 -->
+        <action name="doUpdateNumberXls" class="com.csdl.cabexam.actions.excel.action.doUpdateNumberXls" >
+		<interceptor-ref name="fileUpload">
+			<param name="allowedTypes">application/vnd.ms-excel</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">doNumberTableInfo</result>
+			<result name="error">404.jsp</result>
+			<result name="empty">404.jsp</result>
+		</action>
+		
+         <!--条件查询准考证信息 -->
+         <action name="doQueryNumberByCondition" class="com.csdl.cabexam.actions.excel.action.doNumberTableInfo" method="queryNumberByCondition">
+        	<result name="success" >/page/background/exam/numberlist.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        
+        
+        
+
+         <!--    跳到上传考场管理的页面 -->
+		<action name="doMangeExam" class="com.csdl.cabexam.actions.manager.action.GotoOneBackAction" method="gotoExamManage">
+        	<result name="success" >/page/background/exam/examUpdate.jsp</result>
+        	<result name="mananologin">page/background/admin-login.jsp</result>
+        </action>
+         <!--  遍历考场的时间地点安排信息 -->
+         <action name="doQueryAllExamManage" class="com.csdl.cabexam.actions.exam.action.QueryAllExamManage" method="execute">
+        	<result name="success" >/page/background/exam/examManage.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--通过id获得某个考生的考场安排信息信息-->
+        <action name="doQueryExamManageById" class="com.csdl.cabexam.actions.excel.action.doQueryExamManageById">
+        	<result name="success" >/page/background/exam/updateExamManageInJsp.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--通过id修改某个考生考场安排-->
+        <action name="doUpdateExamManageById" class="com.csdl.cabexam.actions.excel.action.doUpdateExamManageById" method="execute"> 
+        	<result name="success" type="redirectAction">doQueryAllExamManage</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--下载全部考场安排列表-->
+        <action name="doDownloadExamManageXls" class="com.csdl.cabexam.actions.excel.action.doDownloadExamManageXls" method="generateXls">
+           <result type="stream">
+                 <param name="contentType">application/vnd.ms-excel</param>
+                 <param name="inputName">inputStream</param>
+                 <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                 <param name="bufferSize">4096</param>
+           </result>
+        </action> 
+		<!--上传考场安排xls文档，并考场安排信息 -->
+        <action name="doUpdateExamXls" class="com.csdl.cabexam.actions.excel.action.doUpdateExamXls" >
+		<interceptor-ref name="fileUpload">
+			<param name="allowedTypes">application/vnd.ms-excel</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">doQueryAllExamManage</result>
+			<result name="error">404.jsp</result>
+			<result name="empty">404.jsp</result>
+			<result name="tips">/page/background/exam/examUpdate.jsp</result>
+		</action>
+		  
+         <!--条件查询考场安排信息 -->
+         <action name="doQueryExamManageByCondition" class="com.csdl.cabexam.actions.exam.action.QueryExamManageByCondition" method="queryExamManageByCondition">
+        	<result name="success" >/page/background/exam/examManage.jsp</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+         
+         
+        <!--跳入成绩导入页面 -->
+        <action name="doMangeScore" class="com.csdl.cabexam.actions.excel.action.doMangeScore" method="execute">
+        	<result name="success" >page/background/exam/scoreUpdate.jsp</result>
+            <result name="mananologin" >page/background/admin-login.jsp</result>
+        </action>
+        
+        <!--跳入所有成绩导入页面 -->
+        <action name="doMangeAllScore" class="com.csdl.cabexam.actions.excel.action.doMangeScore" method="execute">
+        	<result name="success" >page/background/exam/allScoreUpdate.jsp</result>
+            <result name="mananologin" >page/background/admin-login.jsp</result>
+        </action>
+        
+        <!--遍历理论成绩信息 -->
+        <action name="doTheoryScoreTableInfo" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfo" method="execute">
+        	<result name="success" >/page/background/exam/theoryScorelist.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--遍历所有成绩信息 -->
+        <action name="doAllScoreTableInfo" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfo" method="execute1">
+        	<result name="success" >/page/background/exam/allScorelist.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action> 
+        
+        <!--遍历历年所有成绩信息 -->
+        <action name="doScoreTableInfo" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfo" method="execute2">
+        	<result name="success" >/page/background/exam/ScorelistOfYears.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action> 
+        
+        <!--下载理论成绩列表-->
+        <action name="doDownloadTheoryScoreXls" class="com.csdl.cabexam.actions.excel.action.doDownloadTheoryScoreXls" method="generateXls">
+           <result type="stream">
+               <param name="contentType">application/vnd.ms-excel</param>
+               <param name="inputName">inputStream</param>
+               <param name="contentDisposition">attachment;filename="${fileName}"</param>
+               <param name="bufferSize">4096</param>
+           </result>
+        </action>
+        
+        <!--下载操作成绩列表-->
+        <action name="doDownloadAllScoreXls" class="com.csdl.cabexam.actions.excel.action.doDownloadAllScoreXls" method="generateXls">
+           <result type="stream">
+                 <param name="contentType">application/vnd.ms-excel</param>
+                 <param name="inputName">inputStream</param>
+                 <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                 <param name="bufferSize">4096</param>
+           </result>
+        </action>
+        
+        <!--下载历年所有成绩列表-->
+        <action name="doDownloadScoreXls" class="com.csdl.cabexam.actions.excel.action.doDownloadScoreXls" method="generateXls">
+           <result type="stream">
+                <param name="contentType">application/vnd.ms-excel</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="bufferSize">4096</param>
+           </result>
+        </action>
+        
+        <!--通过id获得某个考生的理论成绩信息-->
+        <action name="doTheoryScoreTableInfoById" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfoById">
+        	<result name="success" >/page/background/exam/updateTheoryScoreInJsp.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        
+        <!--通过id获得某个考生的所有成绩信息-->
+        <action name="doAllScoreTableInfoById" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfoById">
+        	<result name="success" >/page/background/exam/updateAllScoreInJsp.jsp</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        
+        
+        <!--通过id修改某个考生的成绩-->
+        <action name="doUpdateScoreById" class="com.csdl.cabexam.actions.excel.action.doUpdateTheoryScoreById" method="execute"> 
+        	<result name="success" type="redirectAction">doTheoryScoreTableInfo</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        <!--通过id修改某个考生的所有成绩-->
+        <action name="doUpdateAllScoreById" class="com.csdl.cabexam.actions.excel.action.doUpdateAllScoreById" method="execute"> 
+        	<result name="success" type="redirectAction">doAllScoreTableInfo</result>
+        	<result name="error" >404.jsp</result>
+        </action>
+        
+        <!--上传成绩xls文档，并更新理论成绩 -->
+        <action name="doUpdateTheoryScoreXls" class="com.csdl.cabexam.actions.excel.action.doUpdateTheoryScoreXls" >
+		<interceptor-ref name="fileUpload">
+			<param name="allowedTypes">application/vnd.ms-excel</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">doTheoryScoreTableInfo</result>
+			<result name="error">404.jsp</result>
+			<result name="empty">404.jsp</result>
+			<result name="tips">/page/background/exam/scoreUpdate.jsp</result>
+		</action>
+		
+		<!--上传成绩xls文档，并更新所有成绩 -->
+        <action name="doUpdateAllScoreXls" class="com.csdl.cabexam.actions.excel.action.doUpdateAllScoreXls" >
+		<interceptor-ref name="fileUpload">
+			<param name="allowedTypes">application/vnd.ms-excel</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">doAllScoreTableInfo</result>
+			<result name="error">404.jsp</result>
+			<result name="empty">404.jsp</result>
+			<result name="tips">/page/background/exam/allScoreUpdate.jsp</result>
+		</action>
+		
+         <!--条件查询理论成绩信息 -->
+         <action name="doQueryTheoryScoreByCondition" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfo" method="queryTheoryScoreByCondition">
+        	<result name="success" >/page/background/exam/theoryScorelist.jsp</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+         
+         <!--条件查询操作成绩信息 -->
+         <action name="doQueryAllScoreByCondition" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfo" method="queryAllScoreByCondition">
+        	<result name="success" >/page/background/exam/allScorelist.jsp</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+
+         <!--条件查询历年成绩信息 -->
+         <action name="doQueryScoreByCondition" class="com.csdl.cabexam.actions.excel.action.doScoreTableInfo" method="queryScoreByCondition">
+        	<result name="success" >/page/background/exam/ScorelistOfYears.jsp</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+        
+        
+
+        <!--通过id下载打印的准考证-->
+        <action name="doDownloadAdmissionById" class="com.csdl.cabexam.actions.excel.action.doDownloadAdmissionById" method="downloadById">
+           <result type="stream">
+                <param name="contentType">application/msword</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="bufferSize">4096</param>
+           </result>
+        </action>
+        <!--选择性的下载打印的准考证-->
+        <action name="doDownloadChoosedAdmission" class="com.csdl.cabexam.actions.excel.action.doDownloadChoosedAdmission" method="download">
+           <result name="success" type="stream">
+                                <param name="contentType">application/msword</param>
+                                <param name="inputName">inputStream</param>
+                                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                                <param name="bufferSize">4096</param>
+           </result>
+           <result name="empty">page/background/exam/empty.jsp</result>
+        </action>
+        
+        
+        <!-- 通过证书编号和身份证号查询证书状态 -->
+		<action name="doCheckCertByIdNumAndcertNum" class="com.csdl.cabexam.actions.certinfo.action.CheckCertByIdNumAndcertNum" method="check">
+			<result name="success" >/page/front/checkResult.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>
+        
+         <!--条件查询证书记录信息 -->
+         <action name="doQueryCertByCondition" class="com.csdl.cabexam.actions.certinfo.action.getCertInfoByConditon" method="queryCertByCondition">
+        	<result name="success" >/page/background/certificate/admin-certinfo.jsp</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+        
+        
+         <!--统一生成准考证号 -->
+         <action name="doGenerateExamNum" class="com.csdl.cabexam.actions.excel.action.GenerateExamNum">
+        	<result name="success" type="redirectAction">doNumberTableInfo</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+        
+
+         
+         <!--开放报名 -->
+         <action name="doExtraTableInfo" class="com.csdl.cabexam.actions.GetExtraInfo" >
+        	<result name="success">/page/background/beginExam.jsp</result>
+        	<result name="error" >404.jsp</result>
+         </action>
+         <!--开放报名 -->
+         <action name="doUpdateExtraInfo" class="com.csdl.cabexam.actions.UpdateExtraInfo" method="update" >
+             <result name="success" type="redirectAction">doExtraTableInfo</result>
+             <result name="error" >404.jsp</result>
+         </action>
+         
+        <!-- 上传理论缴费 -->
+         <action name="doUploadTheoryFeePicture" class="com.csdl.cabexam.actions.UploadFeePicture" method="theoryFeeUpload" >
+             <interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg</param>
+				<param name="fileUpload.maximumSize">1024000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+             <result name="success" type="redirectAction">doGotoFee</result>
+             <result name="error" >404.jsp</result>
+             <result name="nologin" type="redirectAction">index</result>
+         </action>
+         
+        <!-- 上传操作缴费 -->
+         <action name="doUploadOperateFeePicture" class="com.csdl.cabexam.actions.UploadFeePicture" method="operateFeeUpload" >
+             <interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg</param>
+				<param name="fileUpload.maximumSize">1024000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+             <result name="success" type="redirectAction">doGotoFee</result>
+             <result name="error" >404.jsp</result>
+             <result name="nologin" type="redirectAction">index</result>
+         </action>
+         
+        <!-- 查出所有的理论缴费状态 -->
+		<action name="doQueryTheoryFeeByState" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryTheoryFee">
+			<result name="success">page/background/fee/theoryFeeManage.jsp</result>
+		</action>
+		
+		
+		
+		<!-- 条件查询理论缴费状态 -->
+		<action name="doQueryTheoryFeeByCondition" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryTheoryFeeByConditon">
+			<result name="success">page/background/fee/theoryFeeManage.jsp</result>
+		</action>
+		<!-- 条件查询操作缴费状态 -->
+		<action name="doQueryOperateFeeByCondition" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryOperateFeeByConditon">
+			<result name="success">page/background/fee/operateFeeManage.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		<!-- 查出所有的操作缴费状态 -->
+		<action name="doQueryOperateFeeByState" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryOperateFee">
+			<result name="success">page/background/fee/operateFeeManage.jsp</result>
+		</action>
+		
+		<!-- 通过id来查询理论缴费的examininfo -->
+		<action name="doQueryExammeeTheoryFeeById" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExamineeTheoryFeeById">
+			<result name="success">/page/background/fee/checkTheoryFee.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>	
+		
+		<!-- 查询理论缴费(银联) -->
+		<action name="bGQueryOrder" class="com.csdl.cabexam.actions.pay.BGQueryAction">
+			<result name="success" type="redirectAction">
+				doQueryExammeeTheoryFeeById
+			</result>
+			<result name="error" type="redirect">
+				/page/error.jsp
+			</result>
+		</action>
+		
+		<!-- 通过id来查询操作缴费的examininfo -->
+		<action name="doQueryExammeeOperateFeeById" class="com.csdl.cabexam.actions.examee.action.ExamineeAction" method="queryExamineeOperateFeeById">
+			<result name="success">/page/background/fee/checkOperateFee.jsp</result>
+			<result name="error">500.jsp</result>
+		</action>	
+		
+         <!-- 审核理论缴费通过 -->
+         <action name="doCheckTheoryFeePass" class="com.csdl.cabexam.actions.examee.action.CheckFeeAction" method="checkTheoryFeePass" >
+             <result name="success" type="redirectAction" >doQueryTheoryFeeByState</result>
+             <result name="error" >404.jsp</result>
+         </action>
+         
+         <!-- 审核理论缴费不通过 -->
+         <action name="doCheckTheoryFeeFail" class="com.csdl.cabexam.actions.examee.action.CheckFeeAction" method="checkTheoryFeeFail" >
+             <result name="success" type="redirectAction">doQueryTheoryFeeByState</result>
+             <result name="error" >404.jsp</result>
+         </action>
+         <!-- 审核操作缴费通过 -->
+         <action name="doCheckOperateFeePass" class="com.csdl.cabexam.actions.examee.action.CheckFeeAction" method="checkOperateFeePass" >
+             <result name="success" type="redirectAction">doQueryOperateFeeByState</result>
+             <result name="error" >404.jsp</result>
+         </action>
+         <!-- 审核操作缴费不通过 -->
+         <action name="doCheckOperateFeeFail" class="com.csdl.cabexam.actions.examee.action.CheckFeeAction" method="checkOperateFeeFail" >
+             <result name="success" type="redirectAction">doQueryOperateFeeByState</result>
+             <result name="error" >404.jsp</result>
+         </action>
+         
+          <!--年度评价 -->
+         <action name="doAllRecord" class="com.csdl.cabexam.actions.record.doRecord" method="queryAllRecord">
+        	<result name="success" >/page/background/certificate/recordlist.jsp</result>
+        	<result name="error" >/page/background/admin-welcom.jsp</result>
+        	<result name="empty">/page/background/admin-welcom.jsp</result>
+         </action>
+         <action name="doRecordOfYear" class="com.csdl.cabexam.actions.record.doRecord" method="queryRecordByIdYear">
+        	<result name="success" >/page/background/certificate/recordlist.jsp</result>
+        	<result name="error" >/page/background/admin-welcom.jsp</result>
+        	<result name="empty">/page/background/admin-welcom.jsp</result>
+         </action>
+        <!--下载年度评价表-->
+        <action name="doDownloadRecordXls" class="com.csdl.cabexam.actions.excel.action.doDownloadRecordXls" method="generateXls">
+           <result type="stream">
+                 <param name="contentType">application/vnd.ms-excel</param>
+                 <param name="inputName">inputStream</param>
+                 <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                 <param name="bufferSize">4096</param>
+           </result>
+        </action>
+         <!--上传年度评价表-->
+        <action name="doMangeRecord" class="com.csdl.cabexam.actions.excel.action.doMangeRecord" method="execute">
+        	<result name="success" >page/background/certificate/recordUpdate.jsp</result>
+            <result name="mananologin" >page/background/admin-login.jsp</result>
+        </action>
+        
+        <action name="doUpdateRecord" class="com.csdl.cabexam.actions.excel.action.doUpdateRecord" >
+		<interceptor-ref name="fileUpload">
+			<param name="allowedTypes">application/vnd.ms-excel</param>
+		</interceptor-ref>
+		<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">doAllRecord</result>
+			<result name="error">404.jsp</result>
+			<result name="empty">404.jsp</result>
+			<result name="tips">/page/background/certificate/recordUpdate.jsp</result>
+		</action>
+         
+	</package>
+</struts>    

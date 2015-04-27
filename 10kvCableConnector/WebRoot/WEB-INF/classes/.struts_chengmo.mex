@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="struts_chengmo" location="50,50" size="170,92">
+    <action name="doPayPage" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="payPage.jsp" />
+      </result>
+      <result name="nologin" />
+      <result name="error" />
+    </action>
+    <action name="goPay" location="10,20" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="GoPayTrans.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="readyRefund" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="refPage.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="upRefund" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="refund" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="GoRefTransResult.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="goQueryOrder" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="queryResult.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="feeManager" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="feeManager.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="queryExraBatch" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="feeManager.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="main.jsp" path="page/front/main.jsp" location="9842,1360" size="150,55" />
+  <webResource name="500.jsp" path="500.jsp" location="4895,100" size="150,55" />
+  <webResource name="register.jsp" path="page/front/register.jsp" location="9410,1115" size="150,55" />
+  <webResource name="updatePswSuccess.jsp" path="page/front/updatePswSuccess.jsp" location="8931,905" size="150,55" />
+  <webResource name="updatePsw.jsp" path="page/front/updatePsw.jsp" location="8672,1010" size="150,55" />
+  <webResource name="personInfo.jsp" path="page/front/personInfo.jsp" location="8424,905" size="150,55" />
+  <webResource name="updatePswByEmail.jsp" path="page/front/updatePswByEmail.jsp" location="8091,905" size="150,55" />
+  <webResource name="emailSend.jsp" path="page/front/emailSend.jsp" location="7587,905" size="150,55" />
+  <webResource name="findPsw.jsp" path="page/front/findPsw.jsp" location="7348,1010" size="150,55" />
+  <webResource name="upload_error.jsp" path="page/front/upload_error.jsp" location="7368,205" size="150,55" />
+  <webResource name="fileinfo.jsp" path="page/front/fileinfo.jsp" location="6085,1255" size="150,55" />
+  <webResource name="exameeDetail.jsp" path="page/front/exameeDetail.jsp" location="6493,905" size="150,55" />
+  <webResource name="index.jsp" path="index.jsp" location="6260,905" size="150,55" />
+  <webResource name="checkExameeInfo.jsp" path="page/front/checkExameeInfo.jsp" location="5889,905" size="150,55" />
+  <webResource name="personalFile.jsp" path="page/front/personalFile.jsp" location="5338,905" size="150,55" />
+  <webResource name="admin-notice.jsp" path="page/background/notice/admin-notice.jsp" location="4812,905" size="150,55" />
+  <webResource name="updateNotice.jsp" path="page/background/notice/updateNotice.jsp" location="4182,905" size="150,55" />
+  <webResource name="addNotice.jsp" path="page/background/notice/addNotice.jsp" location="4506,905" size="150,55" />
+  <webResource name="notice-more.jsp" path="page/front/notice-more.jsp" location="3941,905" size="150,55" />
+  <webResource name="admin-login.jsp" path="page/background/admin-login.jsp" location="846,1115" size="150,55" />
+  <webResource name="admin-certinfo.jsp" path="page/background/certificate/admin-certinfo.jsp" location="3286,905" size="150,55" />
+  <webResource name="uploadCertInfoXls.jsp" path="page/background/certificate/uploadCertInfoXls.jsp" location="2857,905" size="150,55" />
+  <webResource name="404.jsp" path="404.jsp" location="2690,1010" size="150,55" />
+  <webResource name="updateCertInfo.jsp" path="page/background/certificate/updateCertInfo.jsp" location="1991,905" size="150,55" />
+  <webResource name="gotoCertInfoDetail.jsp" path="page/background/certificate/gotoCertInfoDetail.jsp" location="1419,905" size="150,55" />
+  <webResource name="certinfoDetail.jsp" path="page/background/certificate/certinfoDetail.jsp" location="1011,905" size="150,55" />
+  <webResource name="payment.jsp" path="page/front/payment.jsp" location="383,905" size="150,55" />
+  <webResource name="error.jsp" path="page/error.jsp" location="650,800" size="150,55" />
+  <webResource name="GoPayTrans.jsp" path="/pages/pay/GoPayTrans.jsp" location="0,0" size="0,0" />
+  <webResource name="error.jsp" path="/pages/error.jsp" location="0,0" size="0,0" />
+  <webResource name="GoRefTransResult.jsp" path="/pages/refund/GoRefTransResult.jsp" location="0,0" size="0,0" />
+  <webResource name="queryResult.jsp" path="/pages/query/queryResult.jsp" location="0,0" size="0,0" />
+  <webResource name="GoPayTrans.jsp" path="/page/pay/GoPayTrans.jsp" location="0,0" size="0,0" />
+  <webResource name="error.jsp" path="/page/error.jsp" location="0,0" size="0,0" />
+  <webResource name="GoRefTransResult.jsp" path="/page/refund/GoRefTransResult.jsp" location="0,0" size="0,0" />
+  <webResource name="queryResult.jsp" path="/page/query/queryResult.jsp" location="0,0" size="0,0" />
+  <webResource name="payPage.jsp" path="page/front/payPage.jsp" location="0,0" size="0,0" />
+  <webResource name="GoPayTrans.jsp" path="/page/front/GoPayTrans.jsp" location="0,0" size="0,0" />
+  <webResource name="GoRefTransResult.jsp" path="/page/front/GoRefTransResult.jsp" location="0,0" size="0,0" />
+  <webResource name="queryResult.jsp" path="/page/front/queryResult.jsp" location="0,0" size="0,0" />
+  <webResource name="refPage.jsp" path="/page/front/refPage.jsp" location="0,0" size="0,0" />
+  <webResource name="feeManager.jsp" path="/page/background/fee/feeManager.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+
